@@ -19,7 +19,7 @@ class GraderGroupController extends Controller
      */
     public function getUserGraderGroup(){
         try {
-            $getUserGraderGroup = DB::select("EXEC dbo.SP_GetUsergetUserGraderGroup"); 
+            $getUserGraderGroup = DB::select("EXEC dbo.SP_GetUserGraderGroups"); 
             return Response::success(" Grader Groups", $getUserGraderGroup);
         } catch (\Throwable $th) {
             return Response::trow500($th->getMessage());
