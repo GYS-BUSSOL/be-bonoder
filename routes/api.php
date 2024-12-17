@@ -9,8 +9,9 @@ use App\Http\Controllers\Api\AcknowlegdeController;
 use App\Http\Controllers\Api\GraderGroupController;
 use App\Http\Controllers\Api\ReportGradeController;
 use App\Http\Controllers\Api\TruckStatusController;
-use App\Http\Controllers\Api\CustomTypeOptionsController;
+use App\Http\Controllers\Api\AdminFunctionController;
 use App\Http\Controllers\Api\PrintApprovalController;
+use App\Http\Controllers\Api\CustomTypeOptionsController;
 
 Route::prefix('gys')->group(function () {
     Route::get('/acknowledge', [AcknowlegdeController::class, 'index'])->name('acknowledge');
@@ -36,4 +37,6 @@ Route::prefix('gys')->group(function () {
     Route::prefix('custom')->group(function () {
         Route::get('/vehicle-type', [CustomTypeOptionsController::class, 'vehicleTypeOptions']);
     });
+
+    Route::get('/admin/scrap-location-gang', [AdminFunctionController::class, 'scrapLocationGang']);
 });
