@@ -20,7 +20,7 @@ class ReportGradeController extends Controller
             $totalWeight = 0;
 
             foreach ($reportGrade as $row) {
-                $totalWeight = $row->net_weight_after_cut_weight_prorate;
+                $totalWeight += $row->net_weight_after_cut_weight_prorate;
             }
 
             $totalWeight = number_format($totalWeight, 2, ',', '.');
