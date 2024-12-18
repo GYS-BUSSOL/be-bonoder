@@ -8,15 +8,15 @@ use Carbon\Carbon;
 use App\Models\QcModel;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\ScallingHeaderModel;
 
 class QcController extends Controller
 {
     public function pendingQC(){
         
         try {
-            $qc = DB::select("EXEC dbo.GetScalingDataPending ?", [Carbon::today()->format('Ymd')]);
-            return Response::success(' Pending: '.Carbon::today()->format('Ymd'), $qc);
+            $date = request('date', Carbon::now()->format('Ymd'));
+            $qc = DB::select("EXEC dbo.GetScalingDataPending ?", [$date]);
+            return Response::success(' Pending: '. $date, $qc);
         } catch (\Throwable $th) {
             return Response::trow500($th->getMessage());
         }

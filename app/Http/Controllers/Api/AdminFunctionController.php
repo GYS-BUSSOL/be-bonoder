@@ -8,22 +8,38 @@ use App\Http\Controllers\Controller;
 
 class AdminFunctionController extends Controller
 {
-    public function graderApproval(){
-
+    public function graderApproval()
+    {
+        try {
+        } catch (\Throwable $th) {
+            return Response::trow500($th->getMessage());
+        }
     }
-    public function rePendingList() {}
+    public function rePendingList() {
+        try {
+        } catch (\Throwable $th) {
+            return Response::trow500($th->getMessage());
+        }
+    }
 
-    public function rePendingListDeleteApproval() {}
+    public function rePendingListDeleteApproval() {
+        try {
+        } catch (\Throwable $th) {
+            return Response::trow500($th->getMessage());
+        }
+    }
 
-    public function reSend(){
+    public function reSend()
+    {
         try {
             // TODO:
         } catch (\Throwable $th) {
             return Response::trow500($th->getMessage());
         }
     }
-    
-    public function scrapLocationGang(){
+
+    public function scrapLocationGang()
+    {
         try {
             $scrapLocationGang = DB::table("v_QMS_get_unloading_locations")->get();
             return Response::success(' Scrap Location Gang', $scrapLocationGang);
