@@ -24,9 +24,6 @@ class ReportGradeController extends Controller
             }
 
             $totalWeight = number_format($totalWeight, 2, ',', '.');
-
-            // $totalWeight = number_format($reportGrade->net_weight_after_cut_weight_prorate, 2, ',', '.');
-
             return Response::success(' ' . $startDate . ' - ' . $endDate, [
                 'reportGrade' => $reportGrade,
                 'totalTonase' => $totalWeight
